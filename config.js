@@ -15,18 +15,24 @@ module.exports = {
     MAX_BREAK_TIME: parseInt(process.env.MAX_BREAK_TIME) || 15000, // 15 seconds
     
     // Screenshot Configuration
-    SCREENSHOT_INTERVAL: parseInt(process.env.SCREENSHOT_INTERVAL) || 2, // 2ms for ultra-fast screenshots
+    SCREENSHOT_INTERVAL: parseInt(process.env.SCREENSHOT_INTERVAL) || 5000, // 5 seconds for realistic screenshots
     MAX_SCREENSHOTS: parseInt(process.env.MAX_SCREENSHOTS) || 2000,
     
     // Browser Configuration
-    HEADLESS_MODE: process.env.HEADLESS_MODE === 'true', // false by default for real human simulation
+    HEADLESS_MODE: process.env.HEADLESS_MODE !== 'false', // true by default for server deployment
     BROWSER_TIMEOUT: parseInt(process.env.BROWSER_TIMEOUT) || 120000,
     
-    // Super Human Behavior Configuration
+    // Enhanced Human Behavior Configuration
     MOUSE_MOVEMENT_SPEED: parseInt(process.env.MOUSE_MOVEMENT_SPEED) || 50, // pixels per step
-    HUMAN_DELAY_MIN: parseInt(process.env.HUMAN_DELAY_MIN) || 500,
-    HUMAN_DELAY_MAX: parseInt(process.env.HUMAN_DELAY_MAX) || 2000,
+    HUMAN_DELAY_MIN: parseInt(process.env.HUMAN_DELAY_MIN) || 1000,
+    HUMAN_DELAY_MAX: parseInt(process.env.HUMAN_DELAY_MAX) || 5000,
     VIEW_VALIDATION_TIMEOUT: parseInt(process.env.VIEW_VALIDATION_TIMEOUT) || 15000,
+    
+    // Human Watch Behavior
+    MIN_WATCH_PERCENTAGE: parseInt(process.env.MIN_WATCH_PERCENTAGE) || 40, // 40% minimum
+    MAX_WATCH_PERCENTAGE: parseInt(process.env.MAX_WATCH_PERCENTAGE) || 85, // 85% maximum
+    ENGAGEMENT_ACTIONS_MIN: parseInt(process.env.ENGAGEMENT_ACTIONS_MIN) || 3,
+    ENGAGEMENT_ACTIONS_MAX: parseInt(process.env.ENGAGEMENT_ACTIONS_MAX) || 10,
     
     // Development Configuration
     NODE_ENV: process.env.NODE_ENV || 'development',
